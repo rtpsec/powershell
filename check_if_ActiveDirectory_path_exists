@@ -1,0 +1,3 @@
+# Change the path to match your environment.   Results will return True or False
+# This is a great way to validate your domain admin didn't move your stuff around.
+[adsi]::Exists("LDAP://OU=CHANGETHIS,OU=GROUPS-CHANGETHIS,DC=DCNAME-CHANGETHIS,DC=domain,DC=com")

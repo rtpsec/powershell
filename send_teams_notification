@@ -1,0 +1,22 @@
+# This code will connect to a Teams endpoint and send a notification to a channel. 
+# You will need to set the endpoint and token variables to your Teams endpoint and authorization token. 
+# You will also need to create a file named token.txt and save your authorization token in the file.
+
+# Import the Teams PowerShell module
+Import-Module MicrosoftTeams
+
+# Get the Teams endpoint and authorization token
+$endpoint = "https://outlook.office.com/api/v2.0/"
+$token = Get-Content -Path "C:\path\to\token.txt"
+
+# Create a Teams client
+$client = New-Object Microsoft.Teams.Client($endpoint, $token)
+
+# Send a notification to a channel
+$client.Conversations.PostMessage(
+  @{
+    ChannelId = "#general"
+    Text = "This is a notification from PowerShell!"
+  }
+)
+
